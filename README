@@ -1,2 +1,35 @@
 # ALAI
-First commit
+
+Experiments around acoustic data transmission built on top of
+[ggwave](https://github.com/ggerganov/ggwave).
+
+## Backend
+
+The FastAPI backend wraps the ggwave CLI utilities built from the upstream
+sources (expected under `external/ggwave/build/bin/`).
+
+### Setup
+
+```bash
+make build-ggwave
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+make serve
+```
+
+The API runs at http://127.0.0.1:8000. Interactive documentation is available
+at http://127.0.0.1:8000/docs.
+
+### Examples
+
+Encode text into a WAV file:
+
+```bash
+curl -s "http://127.0.0.1:8000/encode?text=Hello" --output payload.wav
+```
+
+Decode the payload back into text:
+
+```bash
+curl -s -F "file=@payload.wav" http://127.0.0.1:8000/decode
+```
