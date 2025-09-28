@@ -1,8 +1,6 @@
 .PHONY: build-ggwave setup serve
 
 build-ggwave:
-	cmake -S external/ggwave -B external/ggwave/build
-	cmake --build external/ggwave/build --config Release
 
 setup:
 	python -m venv .venv

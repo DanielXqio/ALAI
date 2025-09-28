@@ -6,7 +6,7 @@ Experiments around acoustic data transmission built on top of
 ## Backend
 
 The FastAPI backend wraps the ggwave CLI utilities built from the upstream
-sources (expected under `external/ggwave/build/bin/`).
+
 
 ### Setup
 
@@ -25,7 +25,7 @@ at http://127.0.0.1:8000/docs.
 Encode text into a WAV file:
 
 ```bash
-curl -s "http://127.0.0.1:8000/encode?text=Hello" --output payload.wav
+
 ```
 
 Decode the payload back into text:
