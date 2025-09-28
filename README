@@ -6,8 +6,8 @@ Experiments around acoustic data transmission built on top of
 ## Backend
 
 The FastAPI backend wraps the ggwave CLI utilities built from the upstream
-sources. Binaries are produced under `build/_deps/ggwave-build/bin/` when you
-run the root CMake build.
+sources. Binaries are produced under `build/bin/` (with fallbacks to
+`build/_deps/ggwave-build/bin/`) when you run the root CMake build.
 
 ### Setup
 

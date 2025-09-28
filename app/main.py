@@ -17,6 +17,7 @@ from pydantic import BaseModel
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 GGWAVE_BINARY_DIRS: Sequence[Path] = (
+    PROJECT_ROOT / "build" / "bin",
     PROJECT_ROOT / "build" / "_deps" / "ggwave-build" / "bin",
     PROJECT_ROOT / "external" / "ggwave" / "build" / "bin",
 )
