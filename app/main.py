@@ -9,7 +9,7 @@ import subprocess
 import tempfile
 from functools import lru_cache
 from pathlib import Path
-from typing import IO, Iterable, Iterator
+from typing import BinaryIO, Iterable, Iterator
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.responses import PlainTextResponse, StreamingResponse
@@ -178,14 +178,14 @@ async def encode(payload: EncodeRequest) -> StreamingResponse:
         tmp_path = Path(tmp_file.name)
 
     tmp_path_ref: Path | None = tmp_path
-    audio_file: IO[bytes] | None = None
+    audio_file: BinaryIO | None = None
     try:
         command, input_data = _build_encode_command(text, tmp_path)
         _run_cli(command, input_data=input_data)
 
         audio_file = tmp_path.open("rb")
 
-        def _cleanup_streaming_file(file_obj: IO[bytes], path: Path) -> None:
+        def _cleanup_streaming_file(file_obj: BinaryIO, path: Path) -> None:
             try:
                 file_obj.close()
             finally:
