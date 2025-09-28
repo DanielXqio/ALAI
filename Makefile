@@ -1,8 +1,6 @@
 .PHONY: build-ggwave setup serve
 
 build-ggwave:
-	cmake -S . -B build
-	cmake --build build --target ggwave-cli
 
 setup:
 	python -m venv .venv
